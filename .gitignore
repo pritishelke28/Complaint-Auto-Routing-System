@@ -1,0 +1,19 @@
+# Virtual Environment
+env/
+venv/
+ENV/
+
+# Python caching artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Local Vector Database data storage files
+chroma_db_storage/
+
+# System specific configuration files
+.DS_Store
+Thumbs.db
+.vscode/

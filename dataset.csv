@@ -1,0 +1,17 @@
+complaint_text,assigned_officer,priority,eta
+The main water pipeline burst on 5th avenue and water is flooding the street.,Officer_Water_Dept,High,2.0
+There is zero water pressure in our building and a major leak in the main line.,Officer_Water_Dept,Medium,3.5
+A broken water pipe is flooding the basement of our residential complex.,Officer_Water_Dept,High,1.5
+"Dirty water is coming out of our kitchen taps, please check the main filtration line.",Officer_Water_Dept,Medium,4.0
+Garbage piles are rotting on the main road and the street smells terrible.,Officer_Sanitation_Dept,Low,5.0
+The sanitation truck has missed our block's trash collection for two weeks.,Officer_Sanitation_Dept,Medium,3.0
+Overflowing public trash bins are attracting stray animals on the sidewalk.,Officer_Sanitation_Dept,Low,6.0
+Illegal dumping of domestic waste in the neighborhood park needs cleanup.,Officer_Sanitation_Dept,Low,5.5
+A street light is flickering non-stop and the corner cul-de-sac is pitch black.,Officer_Electrical_Dept,Low,5.0
+A power line snapped and sparks are flying near the community center gate.,Officer_Electrical_Dept,High,1.0
+The local transformer is making a loud buzzing sound and smoking slightly.,Officer_Electrical_Dept,High,1.5
+An exposed electrical circuit breaker box on the sidewalk is wide open.,Officer_Electrical_Dept,High,2.0
+An abandoned vehicle caught fire on the highway shoulder and thick smoke is rising.,Officer_Emergency_Dept,High,0.5
+"A car engine caught fire at the intersection, we need emergency crews immediately.",Officer_Emergency_Dept,High,0.5
+"A vehicle crashed into a pole and catches fire, send assistance right away.",Officer_Emergency_Dept,High,0.5
+There is smoke coming out of an empty truck parked near the shopping complex.,Officer_Emergency_Dept,High,1.0
