@@ -1,6 +1,7 @@
 import gradio as gr
 import pickle
 import os
+import re
 from sentence_transformers import SentenceTransformer
 from similarity_search import find_similar_complaints
 
@@ -17,7 +18,6 @@ with open("saved_models/eta_model.pkl", "rb") as f:
 
 def pipeline_inference(text_input, uploaded_file):
     """Processes text, audio, or video input from the UI and returns predictions."""
-    # Fallback placeholder transcription step if a file is uploaded
     if uploaded_file is not None:
         complaint_text = f"[Transcribed Content from File: {os.path.basename(uploaded_file)}]"
     elif text_input and text_input.strip() != "":
@@ -28,16 +28,57 @@ def pipeline_inference(text_input, uploaded_file):
     if complaint_text.startswith("Error:"):
         return complaint_text, "Failure", "Failure", "Failure", "Pipeline aborted."
 
+    # -------------------------------------------------------------------------
+    # QA FIX 1: Reject Pure Special Characters / Gibberish Strings
+    # -------------------------------------------------------------------------
+    # Strip everything except letters and numbers
+    alphanumeric_check = re.sub(r'[^a-zA-Z0-9]', '', complaint_text).strip()
+    if len(alphanumeric_check) == 0:
+        return (
+            complaint_text, 
+            "Rejected / Invalid Input", 
+            "Invalid Input", 
+            "0.0 Days", 
+            "PIPELINE ABORTED: Input contains only special characters/symbols and lacks valid textual context."
+        )
+
+    # -------------------------------------------------------------------------
+    # QA FIX 2: Deterministic Keyword Override for Overlapping Sectors (Water vs Sanitation)
+    # -------------------------------------------------------------------------
+    lower_text = complaint_text.lower()
+    forced_officer = None
+    if any(kw in lower_text for kw in ["water supply", "no water", "drinking water", "water pipe", "water pipeline"]):
+        forced_officer = "Water Department Head"
+
     # Extract Embeddings
     text_features = embedding_model.encode([complaint_text])
     
-    # Model Predictions
-    officer = officer_model.predict(text_features)[0]
-    priority = priority_model.predict(text_features)[0]
-    eta = eta_model.predict(text_features)[0]
-    
     # Vector DB Similarity Retrieval
     db_matches = find_similar_complaints(complaint_text, top_k=2)
+    
+    # -------------------------------------------------------------------------
+    # QA FIX 3 & 4: Distance Guardrail Threshold for Out-of-Scope Topics (e.g. Internet issues)
+    # -------------------------------------------------------------------------
+    # Calculate the minimum match distance found in our local database index
+    best_match_distance = db_matches['distances'][0][0] if len(db_matches['distances'][0]) > 0 else 2.0
+    
+    # ChromaDB L2 distance threshold check: higher distance means highly unrelated topic
+    if best_match_distance > 1.25:
+        return (
+            complaint_text,
+            "Unknown / Out of Scope",
+            "Low",
+            "Review Required",
+            f"PIPELINE WARNING: The input text does not correspond to municipal infrastructure or community operations.\n\n"
+            f"SYSTEM METRICS:\n"
+            f"-> Vector Confidence Rejection Boundary: Met\n"
+            f"-> Top Match Semantic Distance: {best_match_distance:.4f} (Threshold: 1.25)"
+        )
+
+    # Model Predictions (Fires only if inputs pass input validations and context bounds checks)
+    officer = forced_officer if forced_officer else officer_model.predict(text_features)[0]
+    priority = priority_model.predict(text_features)[0]
+    eta = eta_model.predict(text_features)[0]
     
     similarity_output = ""
     for doc, meta, dist in zip(db_matches['documents'][0], db_matches['metadatas'][0], db_matches['distances'][0]):
@@ -168,7 +209,7 @@ with gr.Blocks(title="Grievance AI Engine") as demo:
             * **Feature Representation Mapping:** Vectorized via `sentence-transformers/all-MiniLM-L6-v2` down to a 384-dimensional continuous workspace.
             * **Downstream Evaluation Heads:** Scikit-Learn Ensemble Forest weights and linear classification boundaries.
             * **Vector Engine Target:** Embedded native localized `ChromaDB` index instance.
-            * """
+            """
         )
 
     submit_btn.click(
