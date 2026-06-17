@@ -1,7 +1,9 @@
 import gradio as gr
 import pickle
+import os
 from sentence_transformers import SentenceTransformer
-from preprocess_multimodal import transcribe_audio
+# Updated to use the unified multi-modal file processor
+from preprocess_multimodal import process_input_audio_or_video
 from similarity_search import find_similar_complaints
 
 print("Loading local models for the Web UI...")
@@ -15,14 +17,20 @@ with open("saved_models/priority_model.pkl", "rb") as f:
 with open("saved_models/eta_model.pkl", "rb") as f:
     eta_model = pickle.load(f)
 
-def pipeline_inference(text_input, audio_file):
-    """Processes input from the UI and returns predictions."""
-    if audio_file is not None:
-        complaint_text = transcribe_audio(audio_file)
+def pipeline_inference(text_input, uploaded_file):
+    """Processes text, audio, or video input from the UI and returns predictions."""
+    # Check if a file (audio or video) was uploaded
+    if uploaded_file is not None:
+        # Pass the file path into our multi-modal processor (handles .wav, .mp4, .mov, etc.)
+        complaint_text = process_input_audio_or_video(uploaded_file)
     elif text_input and text_input.strip() != "":
         complaint_text = text_input
     else:
-        return "System Warning: Please enter text or record audio.", "Pending", "Pending", "Pending", "No matching historical contexts found."
+        return "System Warning: Please enter text or upload an audio/video file.", "Pending", "Pending", "Pending", "No matching historical contexts found."
+
+    # Prevent pipeline breakdown if file processing returned an error string
+    if complaint_text.startswith("Error:"):
+        return complaint_text, "Failure", "Failure", "Failure", "Pipeline aborted."
 
     # Extract Embeddings
     text_features = embedding_model.encode([complaint_text])
@@ -72,8 +80,8 @@ with gr.Blocks(css=custom_css, title="Grievance AI Engine") as demo:
                     </div>
                 </div>
                 <div style="display: flex; gap: 12px;">
-                    <span style="background: #334155; color: #E2E8F0; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; border: 1px solid #475569;">ENGINE_V1.2</span>
-                    <span style="background: rgba(16, 185, 129, 0.1); color: #10B981; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; border: 1px solid rgba(16, 185, 129, 0.3);">LOCAL ENCLAVE</span>
+                    <span style="background: #334155; color: #E2E8F0; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; border: 1px solid #475569;">ENGINE_V1.5</span>
+                    <span style="background: rgba(16, 185, 129, 0.1); color: #10B981; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; border: 1px solid rgba(16, 185, 129, 0.3);">MULTIMODAL ENCLAVE</span>
                 </div>
             </div>
         </div>
@@ -97,16 +105,17 @@ with gr.Blocks(css=custom_css, title="Grievance AI Engine") as demo:
                 """
                 <div style="display: flex; align-items: center; justify-content: center; margin: 18px 0;">
                     <div style="flex-grow: 1; border-top: 1px solid #334155;"></div>
-                    <span style="padding: 0 16px; font-size: 11px; font-weight: 700; color: #64748B; letter-spacing: 0.08em;">OR DATA FORMAT ALTERNATIVE</span>
+                    <span style="padding: 0 16px; font-size: 11px; font-weight: 700; color: #64748B; letter-spacing: 0.08em;">OR MULTIMODAL MEDIA FILE</span>
                     <div style="flex-grow: 1; border-top: 1px solid #334155;"></div>
                 </div>
                 """
             )
             
-            audio_box = gr.Audio(
-                label="Asynchronous Voice Ingestion", 
-                type="filepath", 
-                sources=["microphone", "upload"]
+            # CRITICAL CHANGE: Changed from gr.Audio to gr.File with explicit types allowed to accommodate Audio and Video seamlessly
+            file_box = gr.File(
+                label="Asynchronous Voice or Video Ingestion", 
+                type="filepath",
+                file_types=["audio", "video"]
             )
             
             gr.HTML("<div style='margin-top: 20px;'></div>")
@@ -160,20 +169,19 @@ with gr.Blocks(css=custom_css, title="Grievance AI Engine") as demo:
     with gr.Accordion("System Engine Architectural Specifications", open=False):
         gr.Markdown(
             """
-            * **Multimodal Transcription Framework:** Local CTranslate2 engine utilizing `faster-whisper` configurations.
+            * **Multimodal Transcription Framework:** Local CTranslate2 engine utilizing `faster-whisper` configurations with `moviepy` backend extraction hooks for video inputs.
             * **Feature Representation Mapping:** Vectorized via `sentence-transformers/all-MiniLM-L6-v2` down to a 384-dimensional continuous workspace.
             * **Downstream Evaluation Heads:** Scikit-Learn Ensemble Forest weights and linear classification boundaries.
             * **Vector Engine Target:** Embedded native localized `ChromaDB` index instance.
-            """
+            * """
         )
 
-    # Link interactions
+    # Link interactions - inputs updated to target the text box and multi-format file box
     submit_btn.click(
         fn=pipeline_inference, 
-        inputs=[text_box, audio_box], 
+        inputs=[text_box, file_box], 
         outputs=[processed_text, out_officer, out_priority, out_eta, out_similarity]
     )
 
 if __name__ == "__main__":
-    # Removed server_port=7861 so that it smoothly cascades to an open port if 7861 is blocked.
     demo.launch(server_name="127.0.0.1", max_threads=4)
