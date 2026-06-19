@@ -5,20 +5,6 @@ complaint_text,assigned_officer,priority,eta
 "There is a massive leakage in the municipal water pipeline outside the main gate.","Water Department Head",Medium,2.0
 "We have not received any water supply for 48 hours in our residential society.","Water Department Head",High,1.0
 "Water supply valve seems to be blocked or broken near the community well.","Water Department Head",Medium,2.5
-"Garbage pile on the corner of the street hasn't been cleaned in over a week. Foul smell.","Sanitation Department Head",Medium,3.0
-"The public drainage system is completely choked and overflowing onto the main road.","Sanitation Department Head",High,1.0
-"Dead animal rotting near the public playground needs immediate disposal. Highly unhygienic.","Sanitation Department Head",High,0.5
-"Industrial waste is being dumped illegally into the local residential trash bins.","Sanitation Department Head",High,2.0
-"Street sweeper hasn't cleared our lane for two weeks. Dust accumulation is bad.","Sanitation Department Head",Low,5.0
-"Open garbage trucks are leaking trash across the highway during transport.","Sanitation Department Head",Low,4.0
-"Total power outage across the entire neighborhood since 4 PM today. No electricity.","Electrical Department Head",High,0.5
-"Streetlights on the main avenue are flickering non-stop and some are completely burnt out.","Electrical Department Head",Low,3.0
-"High voltage fluctuations are damaging domestic electronic appliances in our society.","Electrical Department Head",High,1.0
-"An electrical transformer sparked loudly and black smoke is coming out of it. Dangerous.","Electrical Department Head",High,0.2
-"An underground power cable has been exposed due to recent road construction work.","Electrical Department Head",Medium,2.0
-"Our household digital electricity meter is showing an incorrect reading or fault error.","Electrical Department Head",Low,4.0
-"An abandoned wooden box is lying on the side of the public park walkway.","Sanitation Department Head",Low,4.0
-"The municipal park benches are slightly dirty and covered in autumn leaves.","Sanitation Department Head",Low,6.0
 "Main distribution valve for the city water line broke causing massive street flooding.","Water Department Head",High,0.8
 "The apartment drinking water tanks have high turbidity levels. Mud coming out of taps.","Water Department Head",High,1.2
 "Water mains leakage has formed a large sinkhole near the local market zone.","Water Department Head",High,1.5
@@ -26,29 +12,8 @@ complaint_text,assigned_officer,priority,eta
 "The connection line to the overhead community reservoir tank is leaking continuously.","Water Department Head",Medium,3.0
 "Severe foul odor coming from domestic drinking supply water lines since yesterday.","Water Department Head",High,1.0
 "Water flow has completely stopped in the middle of the day without notice.","Water Department Head",Medium,2.0
-"Submersible pump at the public borewell has short-circuited and stopped functioning.","Water Department Head",Medium,2.5
 "Cracked joint in the water line is wasting thousands of liters of clean water.","Water Department Head",Medium,1.8
 "The public water fountain water is green with algae growth and needs cleaning.","Water Department Head",Low,5.0
-"Sewage pipeline backflow is entering our home kitchens and bathrooms. Immediate help needed.","Sanitation Department Head",High,0.4
-"Piles of plastic garbage accumulated right outside the primary school gates.","Sanitation Department Head",Medium,2.0
-"The open storm drain is completely clogged with plastic bottles and domestic trash.","Sanitation Department Head",High,1.2
-"Bio-medical waste bags found dumped near the neighborhood community dumpster.","Sanitation Department Head",High,0.8
-"Public toilets in the central public bus terminal are completely choked and filthy.","Sanitation Department Head",High,1.0
-"Commercial hotel dumping oily food waste directly into the open street gutter.","Sanitation Department Head",Medium,2.0
-"Community trash collection bins are broken and trash is scattering all over.","Sanitation Department Head",Low,3.5
-"Dead tree branches mixed with leaves blocking the neighborhood storm water inlet.","Sanitation Department Head",Low,2.5
-"The sector sweepers haven't picked up the segregated dry waste from homes this week.","Sanitation Department Head",Low,4.0
-"Construction debris and concrete blocks left sitting directly in the open pedestrian lane.","Sanitation Department Head",Low,4.5
-"Power grids tripped causing an entire sub-station failure. Massive blackout.","Electrical Department Head",High,0.6
-"High tension wire hanging dangerously low over the crowded residential street corner.","Electrical Department Head",High,0.3
-"The main distribution box cover is missing, exposing naked live electrical wires to rain.","Electrical Department Head",High,0.4
-"A severe electrical short circuit caused a small fire in the sub-station pillar box.","Electrical Department Head",High,0.2
-"The automated street light system remains active all through the bright daytime hours.","Electrical Department Head",Low,4.0
-"A heavy tree branch has fallen over the overhead utility power line cables.","Electrical Department Head",High,1.0
-"Smart electricity meter display screen is completely dead and unreadable.","Electrical Department Head",Low,3.5
-"Frequent micro power cuts occurring every ten minutes damaging computers.","Electrical Department Head",Medium,2.0
-"The street lighting utility pole has leaned heavily to one side after a truck hit.","Electrical Department Head",High,1.5
-"Residential area voltage drops down to 140V making air conditioning non-functional.","Electrical Department Head",Medium,2.2
 "Dirty brown water flowing out of all taps in our residential apartment block.","Water Department Head",High,1.0
 "No municipal water supplied to our sector today during our regular morning slot.","Water Department Head",Medium,2.0
 "Main underground water line ruptured by an excavator during road widening.","Water Department Head",High,0.5
@@ -59,6 +24,29 @@ complaint_text,assigned_officer,priority,eta
 "Water billing error shows zero usage but we are being charged excessive flat fees.","Water Department Head",Low,5.0
 "A large industrial water pipeline joint has split apart spraying water 20 feet up.","Water Department Head",High,0.6
 "The local public tap standalone structure has broken off from its concrete base.","Water Department Head",Low,3.0
+"Main pipeline supplying the hospital facility has completely lost its pressure.","Water Department Head",High,0.4
+"Chlorine content in the drinking water supply feels exceptionally high and hurts to drink.","Water Department Head",Medium,1.5
+"Our water meter impeller is spinning rapidly even when the main stopcock is fully shut.","Water Department Head",Low,4.0
+"Water supply smells like diesel or petroleum oil in the industrial boundary line.","Water Department Head",High,0.8
+"Municipal water distribution tanker valve is broken and leaking clean water all day.","Water Department Head",Low,3.0
+"The local water pipeline network configuration is causing a loud water hammer noise.","Water Department Head",Low,5.0
+"Our community borehole water output has dropped significantly over the last month.","Water Department Head",Low,6.0
+"Garbage pile on the corner of the street hasn't been cleaned in over a week. Foul smell.","Sanitation Department Head",Medium,3.0
+"The public drainage system is completely choked and overflowing onto the main road.","Sanitation Department Head",High,1.0
+"Dead animal rotting near the public playground needs immediate disposal. Highly unhygienic.","Sanitation Department Head",High,0.5
+"Industrial waste is being dumped illegally into the local residential trash bins.","Sanitation Department Head",High,2.0
+"Street sweeper hasn't cleared our lane for two weeks. Dust accumulation is bad.","Sanitation Department Head",Low,5.0
+"Open garbage trucks are leaking trash across the highway during transport.","Sanitation Department Head",Low,4.0
+"Sewage pipeline backflow is entering our home kitchens and bathrooms. Immediate help needed.","Sanitation Department Head",High,0.4
+"Piles of plastic garbage accumulated right outside the primary school gates.","Sanitation Department Head",High,1.0
+"The open storm drain is completely clogged with plastic bottles and domestic trash.","Sanitation Department Head",High,1.2
+"Bio-medical waste bags found dumped near the neighborhood community dumpster.","Sanitation Department Head",High,0.8
+"Public toilets in the central public bus terminal are completely choked and filthy.","Sanitation Department Head",High,1.0
+"Commercial hotel dumping oily food waste directly into the open street gutter.","Sanitation Department Head",Medium,2.0
+"Community trash collection bins are broken and trash is scattering all over.","Sanitation Department Head",Low,3.5
+"Dead tree branches mixed with leaves blocking the neighborhood storm water inlet.","Sanitation Department Head",Low,2.5
+"The sector sweepers haven't picked up the segregated dry waste from homes this week.","Sanitation Department Head",Low,4.0
+"Construction debris and concrete blocks left sitting directly in the open pedestrian lane.","Sanitation Department Head",Low,4.5
 "Open sewer line is overflowing directly into the local temple entrance pathway.","Sanitation Department Head",High,0.8
 "Commercial fish market throwing raw organic leftovers onto the open marketplace pavement.","Sanitation Department Head",Medium,1.5
 "The trash collection vehicle hasn't visited our neighborhood for four consecutive days.","Sanitation Department Head",Medium,3.0
@@ -69,6 +57,30 @@ complaint_text,assigned_officer,priority,eta
 "The drainage manhole cover is broken and missing on the dark unlit pedestrian pathway.","Sanitation Department Head",High,0.5
 "Stagnant water pools forming due to blocked road slopes are breeding millions of mosquitoes.","Sanitation Department Head",Medium,3.0
 "Sewer cleaning workers left extracted black silt sludge sitting on the roadside pavement.","Sanitation Department Head",Low,3.0
+"A localized sewer line blockage is causing kitchen sinks to gurgle and drain backward.","Sanitation Department Head",Medium,2.0
+"The local vegetable market leaves tons of rotten cabbage and tomatoes on roads daily.","Sanitation Department Head",Medium,2.5
+"A large concrete slab from the canal roof has collapsed into the main water drain line.","Sanitation Department Head",High,1.5
+"Plastic sorting center dumping non-recyclable shreds straight into the back alleyways.","Sanitation Department Head",Medium,2.0
+"The city sweeper crew left all swept-up dry leaf bags piling up inside our lane.","Sanitation Department Head",Low,3.0
+"The corporate office building next door is pumping untreated greywater onto our road.","Sanitation Department Head",Medium,2.0
+"Illegal waste burning in the open dumping ground causing heavy toxic smoke blankets.","Sanitation Department Head",High,1.0
+"Sewage treatment plant exhaust fans are broken causing terrible air conditions locally.","Sanitation Department Head",Medium,3.0
+"Total power outage across the entire neighborhood since 4 PM today. No electricity.","Electrical Department Head",High,0.5
+"Streetlights on the main avenue are flickering non-stop and some are completely burnt out.","Electrical Department Head",Low,3.0
+"High voltage fluctuations are damaging domestic electronic appliances in our society.","Electrical Department Head",High,1.0
+"An electrical transformer sparked loudly and black smoke is coming out of it. Dangerous.","Electrical Department Head",High,0.2
+"An underground power cable has been exposed due to recent road construction work.","Electrical Department Head",Medium,2.0
+"Our household digital electricity meter is showing an incorrect reading or fault error.","Electrical Department Head",Low,4.0
+"Power grids tripped causing an entire sub-station failure. Massive blackout.","Electrical Department Head",High,0.6
+"High tension wire hanging dangerously low over the crowded residential street corner.","Electrical Department Head",High,0.3
+"The main distribution box cover is missing, exposing naked live electrical wires to rain.","Electrical Department Head",High,0.3
+"A severe electrical short circuit caused a small fire in the sub-station pillar box.","Electrical Department Head",High,0.2
+"The automated street light system remains active all through the bright daytime hours.","Electrical Department Head",Low,4.0
+"A heavy tree branch has fallen over the overhead utility power line cables.","Electrical Department Head",High,1.0
+"Smart electricity meter display screen is completely dead and unreadable.","Electrical Department Head",Low,3.5
+"Frequent micro power cuts occurring every ten minutes damaging computers.","Electrical Department Head",Medium,2.0
+"The street lighting utility pole has leaned heavily to one side after a truck hit.","Electrical Department Head",High,1.5
+"Residential area voltage drops down to 140V making air conditioning non-functional.","Electrical Department Head",Medium,2.2
 "Sparking electricity line outside house number 45 creating a massive hazard.","Electrical Department Head",High,0.3
 "The main industrial estate transformer is overheating and buzzing extremely loudly.","Electrical Department Head",High,1.0
 "Overhead wire connections are loose and clashing during heavy wind conditions.","Electrical Department Head",High,0.8
@@ -79,28 +91,11 @@ complaint_text,assigned_officer,priority,eta
 "The underground utility cable routing map seems wrong as we hit wires while digging.","Electrical Department Head",Medium,2.0
 "Our building single-phase power supply keeps cutting out while other phases work fine.","Electrical Department Head",Medium,2.5
 "The electric service line pole wire insulator has shattered and dropped onto a tree.","Electrical Department Head",High,1.0
-"Main pipeline supplying the hospital facility has completely lost its pressure.","Water Department Head",High,0.4
-"Chlorine content in the drinking water supply feels exceptionally high and hurts to drink.","Water Department Head",Medium,1.5
-"A localized sewer line blockage is causing kitchen sinks to gurgle and drain backward.","Sanitation Department Head",Medium,2.0
-"The local vegetable market leaves tons of rotten cabbage and tomatoes on roads daily.","Sanitation Department Head",Medium,2.5
-"A large concrete slab from the canal roof has collapsed into the main water drain line.","Sanitation Department Head",High,1.5
 "Power factor correction capacitor bank exploded inside the sub-station yard.","Electrical Department Head",High,0.7
 "Streetlights along the bypass highway have been entirely dark for three nights straight.","Electrical Department Head",High,1.2
-"The electrical box in our alleyway is completely unlocked and accessible to small children.","Electrical Department Head",High,0.6
-"Our water meter impeller is spinning rapidly even when the main stopcock is fully shut.","Water Department Head",Low,4.0
-"Plastic sorting center dumping non-recyclable shreds straight into the back alleyways.","Sanitation Department Head",Medium,2.0
-"Water supply smells like diesel or petroleum oil in the industrial boundary line.","Water Department Head",High,0.8
-"The city sweeper crew left all swept-up dry leaf bags piling up inside our lane.","Sanitation Department Head",Low,3.0
+"The electrical box in our alleyway is completely unlocked and accessible to small children.","Electrical Department Head",High,0.3
 "A major short circuit inside the main switchboard room of the public library building.","Electrical Department Head",High,0.5
-"The corporate office building next door is pumping untreated greywater onto our road.","Sanitation Department Head",Medium,2.0
-"Municipal water distribution tanker valve is broken and leaking clean water all day.","Water Department Head",Low,3.0
 "An uninsulated high-voltage underground loop cable is sitting open near a puddle.","Electrical Department Head",High,0.2
-"The local water pipeline network configuration is causing a loud water hammer noise.","Water Department Head",Low,5.0
-"Illegal waste burning in the open dumping ground causing heavy toxic smoke blankets.","Sanitation Department Head",High,1.0
 "A heavy branch broke the secondary neutral wire causing weird appliance behaviors.","Electrical Department Head",High,0.4
-"Our community borehole water output has dropped significantly over the last month.","Water Department Head",Low,6.0
-"Scrap metal merchant storing rusted iron sharp sheets on the public footpaths.","Sanitation Department Head",Medium,3.5
-"The street light right outside my bedroom window is missing its light shield filter.","Electrical Department Head",Low,5.0
-"Sewage treatment plant exhaust fans are broken causing terrible air conditions locally.","Sanitation Department Head",Medium,3.0
-"Water department construction team dug a trench to repair pipes but never filled it back.","Water Department Head",Medium,4.0
 "The main feeder line switch fuse blew out cutting off power to fifty residences.","Electrical Department Head",High,0.8
+"Submersible electric pump at the public borewell has short-circuited and stopped functioning.","Electrical Department Head",High,0.3
